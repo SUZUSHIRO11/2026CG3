@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社サンプルテック</title>
+
+<style>
+   /* ページ内移動時のスクロールを滑らかにする */
+   html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
+   }
+
+   body {
+      margin: 0;
+      font-family: sans-serif;
+      color: #333;
+      line-height: 1.8;
+   }
+
+   /* メニュー全体 */
+   .ddmenu {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background-color: #008080;
+   }
+
+   /* 各メニュー項目 */
+   .ddmenu li {
+      position: relative;
+   }
+
+   /* メニューのリンク */
+   .ddmenu a {
+      display: block;
+      padding: 15px 20px;
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap;
+   }
+
+   /* マウスを乗せたとき */
+   .ddmenu a:hover,
+   .ddmenu a:focus-visible {
+      background-color: #20b2aa;
+   }
+
+   /* サブメニュー */
+   .ddmenu li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background-color: #20b2aa;
+      z-index: 1000;
+   }
+
+   /* サブメニューのリンク */
+   .ddmenu li ul a {
+      padding: 12px 15px;
+      border-top: 1px solid #555;
+   }
+
+   /* マウス操作で表示 */
+   .ddmenu li:hover > ul {
+      display: block;
+   }
+
+   /* キーボード操作で表示 */
+   .ddmenu li:focus-within > ul {
+      display: block;
+   }
+
+   /* 会社名のヘッダー */
+   header {
+      background-color: #006666;
+      color: white;
+      padding: 20px 30px;
+   }
+
+   header h1 {
+      margin: 0;
+      font-size: 28px;
+   }
+
+   header p {
+      margin: 0;
+   }
+
+   /* メイン紹介エリア */
+   .hero {
+      background-color: #e0f2f1;
+      text-align: center;
+      padding: 60px 20px;
+   }
+
+   .hero h2 {
+      color: #006666;
+      font-size: 32px;
+      margin-top: 0;
+   }
+
+   /* 各コンテンツ */
+   section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px 20px;
+      scroll-margin-top: 20px;
+   }
+
+   section h2 {
+      color: #008080;
+      border-bottom: 2px solid #008080;
+      padding-bottom: 8px;
+   }
+
+   /* 事業内容を横並びにする */
+   .services {
+      display: flex;
+      gap: 20px;
+   }
+
+   .service {
+      flex: 1;
+      padding: 20px;
+      background-color: #f0f8f8;
+      border-radius: 8px;
+   }
+
+   .service h3 {
+      color: #008080;
+   }
+
+   /* お知らせ */
+   #news {
+      background-color: #f5fafa;
+      max-width: none;
+      padding-left: max(20px, calc((100% - 1000px) / 2));
+      padding-right: max(20px, calc((100% - 1000px) / 2));
+   }
+
+   /* フッター */
+   footer {
+      background-color: #006666;
+      color: white;
+      text-align: center;
+      padding: 15px;
+   }
+
+   footer p {
+      margin: 0;
+   }
+
+   /* スマートフォン対応 */
+   @media (max-width: 600px) {
+      .ddmenu {
+         flex-wrap: wrap;
+      }
+
+      .ddmenu > li {
+         flex: 1 1 auto;
+      }
+
+      .ddmenu a {
+         padding: 12px;
+      }
+
+      .ddmenu li ul {
+         min-width: 180px;
+      }
+
+      .hero h2 {
+         font-size: 24px;
+      }
+
+      .services {
+         flex-direction: column;
+      }
+   }
+</style>
+</head>
+
+<body>
+
+<!-- ドロップダウンメニュー -->
+<nav aria-label="メインメニュー">
+<ul class="ddmenu">
+
+   <li>
+      <a href="#home">HOME</a>
+   </li>
+
+   <li>
+      <a href="#news">ニュース</a>
+      <ul>
+         <li><a href="#news-product">新製品</a></li>
+         <li><a href="#news-service">新サービス</a></li>
+         <li><a href="#about">弊社について</a></li>
+      </ul>
+   </li>
+
+   <li>
+      <a href="#services">製品・技術</a>
+      <ul>
+         <li><a href="#hardware">ハードウェア</a></li>
+         <li><a href="#software">ソフトウェア</a></li>
+         <li><a href="#webservice">ウェブサービス</a></li>
+      </ul>
+   </li>
+
+   <li>
+      <a href="#company">会社情報</a>
+      <ul>
+         <li><a href="#company">会社概要</a></li>
+         <li><a href="#greeting">社長挨拶</a></li>
+         <li><a href="#history">沿革</a></li>
+         <li><a href="#address">所在地</a></li>
+      </ul>
+   </li>
+
+   <li>
+      <a href="#contact">お問い合わせ</a>
+      <ul>
+         <li><a href="#faq">よくあるご質問</a></li>
+         <li><a href="#contact-info">お問い合わせ先</a></li>
+      </ul>
+   </li>
+
+</ul>
+</nav>
+
+<!-- トップページ -->
+<header id="home">
+   <h1>株式会社サンプルテック</h1>
+   <p>技術で、未来をもっと便利に。</p>
+</header>
+
+<!-- メイン紹介 -->
+<div class="hero">
+   <h2>テクノロジーで、明日を変える。</h2>
+   <p>
+      私たちはIT技術を活用し、<br>
+      お客様のビジネスをサポートします。
+   </p>
+</div>
+
+<!-- 会社紹介 -->
+<section id="about">
+   <h2>私たちについて</h2>
+   <p>
+      株式会社サンプルテックは、ソフトウェア開発や
+      Webサイト制作を行う架空の会社です。
+      技術とアイデアで、社会をより便利にすることを目指しています。
+   </p>
+</section>
+
+<!-- 事業内容 -->
+<section id="services">
+   <h2>事業内容</h2>
+
+   <div class="services">
+
+      <div class="service" id="hardware">
+         <h3>ハードウェア</h3>
+         <p>業務に役立つ機器やハードウェアに関する技術を紹介します。</p>
+      </div>
+
+      <div class="service" id="software">
+         <h3>ソフトウェア・システム開発</h3>
+         <p>企業の業務を効率化するシステムを開発します。</p>
+      </div>
+
+      <div class="service" id="webservice">
+         <h3>ウェブサービス・Webサイト制作</h3>
+         <p>見やすく使いやすいWebサイトやサービスを制作します。</p>
+      </div>
+
+   </div>
+</section>
+
+<!-- お知らせ -->
+<section id="news">
+   <h2>お知らせ</h2>
+   <ul>
+      <li id="news-product">
+         2026年10月1日　新製品・新サービスを公開しました。
+      </li>
+      <li id="news-service">
+         2026年9月15日　ホームページを開設しました。
+      </li>
+      <li>
+         2026年9月1日　会社を設立しました。
+      </li>
+   </ul>
+</section>
+
+<!-- 会社情報 -->
+<section id="company">
+   <h2>会社情報</h2>
+
+   <div id="greeting">
+      <h3>社長挨拶</h3>
+      <p>
+         技術とアイデアを通じて、お客様の課題解決と
+         より便利な社会の実現を目指してまいります。
+      </p>
+   </div>
+
+   <div id="history">
+      <h3>沿革</h3>
+      <ul>
+         <li>2026年9月1日　会社設立</li>
+         <li>2026年9月15日　ホームページ開設</li>
+         <li>2026年10月1日　新サービス公開</li>
+      </ul>
+   </div>
+
+   <div id="address">
+      <h3>所在地</h3>
+      <p>東京都サンプル区（架空の住所）</p>
+   </div>
+
+   <p>会社名：株式会社サンプルテック</p>
+   <p>設立：2026年9月1日（架空の設定）</p>
+   <p>事業内容：システム開発・Webサイト制作</p>
+</section>
+
+<!-- お問い合わせ -->
+<section id="contact">
+   <h2>お問い合わせ</h2>
+
+   <div id="faq">
+      <h3>よくあるご質問</h3>
+      <p>サービスに関するご質問は、メールにてお問い合わせください。</p>
+   </div>
+
+   <div id="contact-info">
+      <h3>お問い合わせ先</h3>
+      <p>
+         メール：
+         <a href="mailto:info@example.com">info@example.com</a>
+         （架空のアドレス）
+      </p>
+   </div>
+</section>
+
+<!-- フッター -->
+<footer>
+   <p>&copy; 2026 株式会社サンプルテック</p>
+</footer>
+
+</body>
+</html>
